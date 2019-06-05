@@ -1,0 +1,20 @@
+version: '3'
+services:
+  apache:
+    build: ./.docker/apache
+    container_name: dev_apache
+    ports:
+      - 8081:80
+    volumes:
+      - .:/home/wwwroot/subtitlesCounter
+      - ./.docker/apache/vhosts:/etc/apache2/sites-enabled
+    depends_on:
+      - php
+
+  php:
+    build: ./.docker/php
+    container_name: dev_php
+    volumes:
+      - .:/home/wwwroot/subtitlesCounter
+    environment:
+      - XDEBUG_CONFIG=remote_host=10.254.254.254

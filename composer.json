@@ -1,0 +1,13 @@
+{
+  "autoload": {
+    "psr-4": {
+      "SubtitlesCounter\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
+}
